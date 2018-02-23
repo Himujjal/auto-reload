@@ -1,0 +1,19 @@
+{
+  "name": "auto-reload",
+  "version": "1.0.0",
+  "description": "A simple HTTP server that serves the file and auto-reloads the browser on file change",
+  "main": "index.js",
+  "author": "Himujjal",
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently \"node index\" \"node socket\" "
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-ws": "^3.0.0",
+    "filewatcher": "^3.0.1",
+    "ws": "^4.1.0"
+  }
+}
