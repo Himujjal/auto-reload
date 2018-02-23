@@ -1,7 +1,6 @@
 // Step 1: Get all the HTML, CSS and JS files in the required directory
 // Step 2: Create a new socket that will send message to a specific server with the shortFileName message to the frontend
 // Step 3: Serve each file with their respective location
-
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -13,7 +12,7 @@ const http = require("http");
 app.use(bodyParser.json());
 app.use(cors());
 const {getAllFilesWithExt, filterFunctionWithExtension, replaceSlashes} = require('./getAllFilesWithExt');
-var env = (process.env.NODE_ENV).trim();
+// var env = (process.env.NODE_ENV).trim();
 
 const stringToBePut = "<script>var socket=new WebSocket('ws://localhost:3000');setInterval(function(){socket.send(window.location.pathname)},1000);socket.onmessage=function(event){var message=event.data;console.log(message);if(message===window.location.pathname){window.location.reload();}}</script>";
 
@@ -66,9 +65,7 @@ wss.on('connection', (ws)=>{
         }       
     })
 })
-if(env === "production") {}
-
-
+// if(env === "production") {}
 
 htmlFiles.forEach(fileLocation=>{
     var shortFileLocation = replaceSlashes(path.normalize(fileLocation).slice(directory.length+1));
